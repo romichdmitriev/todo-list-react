@@ -1,0 +1,42 @@
+.content__title-block {
+  margin-bottom: 2.5rem;
+}
+
+.title-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+}
+
+#theme-checkbox {
+  display: none;
+}
+
+.theme-toggler {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.theme-toggler::after{
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+  border: 1px solid #e3e4f1;
+  border-radius: 50%;
+  transition: all 0.5s;
+  transform: translateX(0px);
+  box-sizing: border-box;
+}
+
+#theme-checkbox:checked + .theme-toggler::after{
+  transition: all 0.5s;
+  transform: translateX(25px);
+  background: #393a4b;
+}
