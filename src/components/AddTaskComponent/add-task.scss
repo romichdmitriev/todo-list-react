@@ -1,0 +1,76 @@
+.content__add-task {
+  margin-bottom: 1.5rem;
+}
+
+.add-task {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+  padding: 0 1.5rem;
+  background-color: var(--task-bg-color);
+  border-radius: 5px;
+
+  &__check {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--task-check-border-color);
+    cursor: pointer;
+  }
+
+  &__check:hover {
+    background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+  }
+
+  &__check-icon {
+    display: flex;
+    width: 12px;
+    height: 12px;
+    color: var(--task-bg-color);
+  }
+
+  &__input {
+    flex-grow: 1;
+    color: var(--add-task-text-color);
+    background: transparent;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+  }
+
+  &__input:focus {
+    color: var(--add-task-text-focus);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .add-task {
+    height: 3rem;
+
+    &__check {
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+    }
+
+    &__input-error {
+      width: 12px;
+      height: 12px;
+      margin-left: 20px;
+    }
+
+    &__delete {
+      display: block;
+      width: 12px;
+      height: 12px;
+      margin: 0 20px 0 10px;
+    }
+  }
+}
