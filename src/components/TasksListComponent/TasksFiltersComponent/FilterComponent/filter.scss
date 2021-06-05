@@ -1,0 +1,16 @@
+.tasks__filters-item {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--filters-text-color-hover);
+  }
+
+  & + .tasks__filters-item {
+    margin-left: 19px;
+  }
+
+  &--active {
+    color: #3a7cfd;
+    pointer-events: none;
+  }
+}
