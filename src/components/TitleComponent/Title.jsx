@@ -2,7 +2,7 @@ import React from "react";
 
 import './title.scss';
 
-function Title({ setLightTheme, isLightTheme }) {
+const Title = ({ setLightTheme, isLightTheme }) => {
   const changeTheme = () => {
     !isLightTheme ? setLightTheme(true) : setLightTheme(false);
   }

@@ -8,7 +8,7 @@ import deleteTask from '../../../assets/icons/delete-task.svg';
 
 import { TASK_CLASSES, INPUT_ERROR_CLASSES } from "../../../content/TASK";
 
-function TaskItem({ currentTask, tasks, setTasks}) {
+const TaskItem = ({ currentTask, tasks, setTasks}) => {
   const activateCompletedStatus = () => currentTask.completed ? TASK_CLASSES.completed : TASK_CLASSES.uncompleted;
 
   const activateInputError = () => !currentTask.text.length ? INPUT_ERROR_CLASSES.invalid : INPUT_ERROR_CLASSES.valid;

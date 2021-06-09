@@ -5,7 +5,7 @@ import TasksFilters from "./TasksFiltersComponent/TasksFilters";
 
 import './tasks-list.scss';
 
-function TasksList({ tasks, setTasks, activeFilter, setActiveFilter }) {
+const TasksList = ({ tasks, setTasks, activeFilter, setActiveFilter }) => {
   return (
     <div className="tasks">
       <ul className="tasks-list">

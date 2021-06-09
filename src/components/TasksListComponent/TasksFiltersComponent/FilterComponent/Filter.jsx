@@ -6,7 +6,7 @@ import './filter.scss';
 
 import {FILTER_STATUS_CLASSES} from "../../../../content/FILTERS";
 
-function Filter({ activeFilter, filterName, setActiveFilter }) {
+const Filter = ({ activeFilter, filterName, setActiveFilter }) => {
   const setClassForFilter = () => activeFilter === filterName  ? FILTER_STATUS_CLASSES.active : FILTER_STATUS_CLASSES.inactive;
 
   const setActiveStatusOFFilter = ({ target }) => {

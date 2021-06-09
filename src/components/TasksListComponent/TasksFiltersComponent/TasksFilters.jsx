@@ -6,7 +6,7 @@ import getRandomId from "../../../utils/getRandomId";
 
 import './tasks-filters.scss';
 
-function TasksFilters({ tasks, activeFilter, setActiveFilter, setTasks }) {
+const TasksFilters = ({ tasks, activeFilter, setActiveFilter, setTasks }) => {
   const [ filters, setFilters ] = useState([
     {id: getRandomId(), name: 'all'},
     {id: getRandomId(), name: 'active'},

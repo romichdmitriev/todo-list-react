@@ -6,7 +6,7 @@ import completed from '../../assets/icons/completed.svg';
 
 import './add-task.scss';
 
-function AddTask({ tasks, setTasks, inputText, setInputText }) {
+const AddTask = ({ tasks, setTasks, inputText, setInputText }) => {
   const inputTextHandler = ({ target }) => setInputText(target.value);
 
   const addTaskByClick = () => {

@@ -9,7 +9,7 @@ import THEME from "../content/THEME";
 
 import './app.scss';
 
-function App() {
+const App = () => {
   const [ inputText, setInputText ] = useState('');
   const [ tasks, setTasks ] = useState([]);
   const [ activeFilter, setActiveFilter ] = useState('all');
