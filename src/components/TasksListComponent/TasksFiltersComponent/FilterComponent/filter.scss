@@ -1,12 +1,13 @@
 .tasks__filters-item {
+  margin-right: 19px;
   cursor: pointer;
 
   &:hover {
     color: var(--filters-text-color-hover);
   }
 
-  & + .tasks__filters-item {
-    margin-left: 19px;
+  &:last-child {
+    margin-right: 0;
   }
 
   &--active {
