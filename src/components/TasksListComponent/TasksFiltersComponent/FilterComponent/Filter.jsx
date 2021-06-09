@@ -1,6 +1,6 @@
 import React from "react";
 
-import getFirstUCWord from "../../../../utils/getFirstUCWord";
+import _ from 'lodash';
 
 import './filter.scss';
 
@@ -15,7 +15,7 @@ const Filter = ({ activeFilter, filterName, setActiveFilter }) => {
 
   return (
     <div className={ setClassForFilter() } data-filter={filterName} onClick={ setActiveStatusOFFilter }>
-      {getFirstUCWord(filterName)}
+      {_.upperFirst(filterName)}
     </div>
   )
 }
