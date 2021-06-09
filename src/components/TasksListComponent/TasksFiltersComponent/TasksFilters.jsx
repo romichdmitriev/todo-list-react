@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 
 import Filter from "./FilterComponent/Filter";
-
-import getRandomId from "../../../utils/getRandomId";
+import filtersList from "../../../Objects/Filters";
 
 import './tasks-filters.scss';
 
 const TasksFilters = ({ tasks, activeFilter, setActiveFilter, setTasks }) => {
-  const [ filters, setFilters ] = useState([
-    {id: getRandomId(), name: 'all'},
-    {id: getRandomId(), name: 'active'},
-    {id: getRandomId(), name: 'completed'}
-  ]);
+  const [ filters, setFilters ] = useState(filtersList);
 
   const deleteCompletedTasks = () => {
     const filteredTasks = tasks.activeFilter((task) => !task.completed);
