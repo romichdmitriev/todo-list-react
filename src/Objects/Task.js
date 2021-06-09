@@ -1,8 +1,8 @@
-import getRandomId from "../utils/getRandomId";
+import _ from 'lodash';
 
 class Task {
   constructor(text) {
-    this.id = getRandomId();
+    this.id = _.uniqueId();
     this.text = text;
     this.completed = false;
   }

@@ -1,9 +1,9 @@
-import getRandomId from "../utils/getRandomId";
+import _ from 'lodash';
 
 const filtersList = [
-  {id: getRandomId(), name: 'all'},
-  {id: getRandomId(), name: 'active'},
-  {id: getRandomId(), name: 'completed'}
+  {id: _.uniqueId(), name: 'all'},
+  {id: _.uniqueId(), name: 'active'},
+  {id: _.uniqueID(), name: 'completed'}
 ];
 
 export default filtersList;
