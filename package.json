@@ -17,14 +17,17 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
+    "babel-plugin-lodash": "^3.3.4",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
