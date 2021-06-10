@@ -1,10 +1,12 @@
-h1 {
-  font: 700 2.5rem 'Josefin Sans', sans-serif;
-  color: #fff;
-  letter-spacing: 0.375em;
-  line-height: 1;
-}
+:global {
+  h1 {
+    font: 700 2.5rem 'Josefin Sans', sans-serif;
+    color: #fff;
+    letter-spacing: 0.375em;
+    line-height: 1;
+  }
 
-input {
-  font: var(--primary-font-size) 'Josefin Sans', sans-serif;
+  input {
+    font: var(--primary-font-size) 'Josefin Sans', sans-serif;
+  }
 }

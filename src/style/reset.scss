@@ -1,22 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+:global {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-ul {
-  list-style: none;
-}
+  ul {
+    list-style: none;
+  }
 
-a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
 
-h1,
-h2,
-h3,
-p,
-label {
-  margin: 0;
-  padding: 0;
+  h1,
+  h2,
+  h3,
+  p,
+  label {
+    margin: 0;
+    padding: 0;
+  }
 }
