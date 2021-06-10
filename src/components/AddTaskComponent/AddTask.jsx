@@ -4,7 +4,7 @@ import Task from "../../Objects/Task";
 
 import completed from '../../assets/icons/completed.svg';
 
-import './add-task.scss';
+import styles from './AddTask.scss';
 
 const AddTask = ({ tasks, setTasks, inputText, setInputText }) => {
   const inputTextHandler = ({ target }) => setInputText(target.value);
@@ -30,14 +30,14 @@ const AddTask = ({ tasks, setTasks, inputText, setInputText }) => {
   }
 
   return (
-    <div className="content__add-task add-task" onKeyPress={addTaskByKey}>
-      <div className="add-task__check" onClick={addTaskByClick}>
-        <svg className="add-task__check-icon">
+    <div className={`${styles.addTaskPosition} ${styles.addTask}`} onKeyPress={addTaskByKey}>
+      <div className={styles.check} onClick={addTaskByClick}>
+        <svg className={styles.checkIcon}>
           <use xlinkHref='./assets/icons/sprite.svg#completed'></use>
         </svg>
       </div>
 
-      <input type="text" className="add-task__input" onChange={inputTextHandler} value={inputText} placeholder="Create a new todo..." required/>
+      <input type="text" className={styles.input} onChange={inputTextHandler} value={inputText} placeholder="Create a new todo..." required/>
     </div>
   )
 }
