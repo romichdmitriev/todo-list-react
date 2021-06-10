@@ -1,12 +1,5 @@
 :global {
   :root {
-    --grey-first: #494c6b;
-    --grey-second: #9495a5;
-    --grey-third: #d1d2da;
-    --add-task-text-color: var(--grey-second);
-    --task-text-color-active: var(--grey-first);
-    --task-text-color-completed: var(--grey-third);
-    --scrollbar-thumb-color: var(--grey-third);
     --primary-font-size: 400 1.125rem;
     --sub-font-size-regular: 400 0.875rem;
     --sub-font-size-bold: 700 0.875rem;
@@ -14,13 +7,20 @@
 }
 
 .app--light {
+  --grey-first: #494c6b;
+  --grey-second: #9495a5;
+  --grey-third: #d1d2da;
   --primary-bg-color: #fafafa;
+  --add-task-text-color: var(--grey-second);
+  --task-text-color-active: var(--grey-first);
+  --task-text-color-completed: var(--grey-third);
   --task-list-drop-shadow: 0 35px 50px -15px rgba(194, 195, 214, 0.5);
   --task-bg-color: #fff;
   --task-check-border-color: #e3e4f1;
   --add-task-text-focus: #393a4b;
   --filters-text-color: var(--grey-second);
   --filters-text-color-hover: var(--grey-first);
+  --scrollbar-thumb-color: var(--grey-third);
 }
 
 .app--dark {
@@ -28,11 +28,15 @@
   --grey-second: #767992;
   --grey-third: #4d5067;
   --primary-bg-color: #171823;
+  --add-task-text-color: var(--grey-second);
+  --task-text-color-active: var(--grey-first);
+  --task-text-color-completed: var(--grey-third);
   --task-list-drop-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
   --task-bg-color: #25273d;
   --task-check-border-color: #5b5e7e;
   --add-task-text-focus: var(--grey-first);
   --filters-text-color: #5b5e7e;
   --filters-text-color-hover: #e3e4f1;
+  --scrollbar-thumb-color: var(--grey-third);
 }
 
