@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Filter from "./FilterComponent/Filter";
 import filtersList from "../../../Objects/Filters";
 
-import './tasks-filters.scss';
+import styles from './TasksFilters.scss';
 
 const TasksFilters = ({ tasks, activeFilter, setActiveFilter, setTasks }) => {
   const [ filters, setFilters ] = useState(filtersList);
@@ -14,16 +14,16 @@ const TasksFilters = ({ tasks, activeFilter, setActiveFilter, setTasks }) => {
   }
 
   return (
-    <div className="tasks-filters-container">
-      <div className="tasks__counter">
+    <div className={styles.filtersContainer}>
+      <div className={styles.tasksCounter}>
         {tasks.length} items left
       </div>
 
-      <div className="tasks__filters">
+      <div className={styles.filters}>
         {filters.map(filter => <Filter key={filter.id} filterName={filter.name} activeFilter={activeFilter} setActiveFilter={setActiveFilter}/>)}
       </div>
 
-      <div className="tasks__clear" onClick={() => deleteCompletedTasks()}>
+      <div className={styles.tasksClear} onClick={() => deleteCompletedTasks()}>
         Clear Completed
       </div>
     </div>

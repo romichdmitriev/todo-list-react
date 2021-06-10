@@ -1,4 +1,4 @@
-.tasks-filters-container {
+.filters-container {
   display: flex;
   justify-content: space-between;
   padding: 1.14em 1.7em 1.42em 1.7em;
@@ -7,17 +7,17 @@
   background-color: var(--task-bg-color);
 }
 
-.tasks__filters {
+.filters {
   display: flex;
   font-weight: 700;
 }
 
-.tasks__clear {
+.tasks-clear {
   cursor: pointer;
-}
 
-.tasks__clear:hover {
-  color: var(--filters-text-color-hover);
+  &:hover {
+    color: var(--filters-text-color-hover);
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -25,11 +25,11 @@
     justify-content: center;
   }
 
-  .tasks__counter {
+  .tasks-counter {
     display: none;
   }
 
-  .tasks__clear {
+  .tasks-clear {
     display: none;
   }
 }
