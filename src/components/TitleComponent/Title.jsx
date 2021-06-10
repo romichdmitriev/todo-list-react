@@ -1,6 +1,6 @@
 import React from "react";
 
-import './title.scss';
+import styles from './Title.scss';
 
 const Title = ({ setLightTheme, isLightTheme }) => {
   const changeTheme = () => {
@@ -8,11 +8,11 @@ const Title = ({ setLightTheme, isLightTheme }) => {
   }
 
   return (
-    <div className="content__title-block title-block">
-      <h1 className="title">TODO</h1>
+    <div className={`${styles.titlePos} ${styles.title}`}>
+      <h1>TODO</h1>
 
-      <input id="theme-checkbox" type="checkbox"/>
-      <label className="theme-toggler" htmlFor="theme-checkbox" onClick={changeTheme}></label>
+      <input id="theme-checkbox" className={styles.themeCheckbox} type="checkbox"/>
+      <label className={styles.themeToggler} htmlFor="theme-checkbox" onClick={changeTheme}></label>
     </div>
   )
 }
