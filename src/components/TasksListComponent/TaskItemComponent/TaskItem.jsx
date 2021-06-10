@@ -1,15 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 
-import './task-item.scss';
+import styles from './TaskItem.scss';
 
 import completed from '../../../assets/icons/completed.svg';
 import warning from '../../../assets/icons/warning.svg';
 import deleteTask from '../../../assets/icons/delete-task.svg';
 
-import { TASK_CLASSES, INPUT_ERROR_CLASSES } from "../../../content/TASK";
+import { TASK_CLASSES, INPUT_ERROR_CLASSES } from "./TASK";
 
 const TaskItem = ({ currentTask, tasks, setTasks}) => {
-  const activateCompletedStatus = () => currentTask.completed ? TASK_CLASSES.completed : TASK_CLASSES.uncompleted;
+  const activateCompletedStatus = () => {
+    return currentTask.completed ? TASK_CLASSES.completed : TASK_CLASSES.uncompleted;
+  }
 
   const activateInputError = () => !currentTask.text.length ? INPUT_ERROR_CLASSES.invalid : INPUT_ERROR_CLASSES.valid;
 
@@ -42,11 +44,11 @@ const TaskItem = ({ currentTask, tasks, setTasks}) => {
   }
 
   return (
-    <li className="tasks-lists__item task-item">
+    <li className={styles.task}>
       <div className={activateCompletedStatus().check} onClick={updateCompletedStatusOfCurrentTask}>
-        <div className="task-item__check-inner"></div>
+        <div className={styles.checkBtnInner}></div>
 
-        <svg className="task-item__check-icon">
+        <svg className={styles.checkBtnIcon}>
           <use href="./assets/icons/sprite.svg#completed"></use>
         </svg>
       </div>
@@ -56,7 +58,7 @@ const TaskItem = ({ currentTask, tasks, setTasks}) => {
         <use href="./assets/icons/sprite.svg#warning"></use>
       </svg>
 
-      <svg className="task-item__delete" onClick={() => deleteCurrentTask(currentTask.id)}>
+      <svg className={styles.deleteBtn} onClick={() => deleteCurrentTask(currentTask.id)}>
         <use href="./assets/icons/sprite.svg#delete-task"></use>
       </svg>
     </li>
