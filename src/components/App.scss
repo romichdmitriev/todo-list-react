@@ -15,7 +15,7 @@
   }
 }
 
-.background-img {
+.img {
   position: absolute;
   top: 0;
   width: 100%;
@@ -23,10 +23,10 @@
   background-image: url("../assets/img/background-light.jpg"), linear-gradient(-45deg, #7D9FF8, #5F66DB, #8544D4);
   background-position: 50% 50%;
   background-repeat: no-repeat;
-}
 
-.background-img--theme-dark {
-  background-image: url("../assets/img/background-dark.jpg"), linear-gradient(-45deg, #391B9F, #4D32B3, #6F1B79);
+  &--dark {
+    background-image: url("../assets/img/background-dark.jpg"), linear-gradient(-45deg, #391B9F, #4D32B3, #6F1B79);
+  }
 }
 
 .content {
