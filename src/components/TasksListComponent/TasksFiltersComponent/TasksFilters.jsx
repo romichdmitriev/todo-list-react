@@ -9,7 +9,7 @@ const TasksFilters = ({ tasks, activeFilter, setActiveFilter, setTasks }) => {
   const [ filters, setFilters ] = useState(filtersList);
 
   const deleteCompletedTasks = () => {
-    const filteredTasks = tasks.activeFilter((task) => !task.completed);
+    const filteredTasks = tasks.filter((task) => !task.completed);
     setTasks(filteredTasks);
   }
 
