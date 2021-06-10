@@ -5,9 +5,9 @@ import Title from './TitleComponent/Title';
 import AddTask from './AddTaskComponent/AddTask';
 
 import filterHandlers from "../utils/filterHandlers";
-import THEME from "../content/THEME";
 
-import './app.scss';
+import styles from './App.scss';
+import THEME from "./THEME";
 
 const App = () => {
   const [ inputText, setInputText ] = useState('');
@@ -15,15 +15,15 @@ const App = () => {
   const [ activeFilter, setActiveFilter ] = useState('all');
   const [ isLightTheme, setLightTheme ] = useState(true);
 
-  const setBgClassByTheme = () => isLightTheme ? THEME.background.light : THEME.background.dark;
+  const setBgImgClassByTheme = () => isLightTheme ? THEME.img.light : THEME.img.dark;
 
   const setAppClassByTheme = () => isLightTheme ? THEME.app.light : THEME.app.dark;
 
   return  (
     <div className={ setAppClassByTheme() }>
-      <div className={ setBgClassByTheme() } />
+      <div className={ setBgImgClassByTheme() } />
 
-      <main className="content">
+      <main className={styles.content}>
         <Title setLightTheme={setLightTheme} isLightTheme={isLightTheme}/>
 
         <AddTask inputText={inputText} setInputText={setInputText} tasks={tasks} setTasks={setTasks}/>
