@@ -1,0 +1,44 @@
+@import '../style/vars';
+@import '../style/reset';
+@import '../style/common';
+
+.app {
+  min-height: 100vh;
+  padding: 70px 0 52px;
+  font: var(--primary-font-size) 'Josefin Sans', sans-serif;
+  background-color: var(--primary-bg-color);
+}
+
+@media screen and (max-width: 576px) {
+  .app {
+    font-size: 0.75rem;
+  }
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 300px;
+  background-image: url("../assets/img/background-light.jpg"), linear-gradient(-45deg, #7D9FF8, #5F66DB, #8544D4);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+  &--dark {
+    background-image: url("../assets/img/background-dark.jpg"), linear-gradient(-45deg, #391B9F, #4D32B3, #6F1B79);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 540px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 576px) {
+  .content {
+    width: 327px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,35 @@
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.14em 1.7em 1.42em 1.7em;
+  font-size: 0.875rem;
+  color: var(--filters-text-color);
+  background-color: var(--task-bg-color);
+}
+
+.filters {
+  display: flex;
+  font-weight: 700;
+}
+
+.tasks-clear {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--filters-text-color-hover);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .tasks-filters-container {
+    justify-content: center;
+  }
+
+  .tasks-counter {
+    display: none;
+  }
+
+  .tasks-clear {
+    display: none;
+  }
+}
