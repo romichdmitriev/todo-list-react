@@ -48,7 +48,6 @@ module.exports = ({ development }) => {
     devServer: {
       contentBase: path.resolve(__dirname, 'dist'),
       port: 3001,
-      'stats.children': true,
     },
     plugins: [
       new HtmlWebpackPlugin({
