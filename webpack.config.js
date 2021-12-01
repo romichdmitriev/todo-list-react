@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const createCssFile = (isDev) => {
@@ -12,12 +11,13 @@ const createCssFile = (isDev) => {
       loader: 'css-loader',
       options: {
         modules: {
-          exportLocalsConvention: "camelCase",
-          localIdentName: `${isDev ? '[name]__[local]__[hash:base64:5]' : '[hash:base64]'}`
-        }
-      }
-    }, 'sass-loader'
-  ]
+          exportLocalsConvention: 'camelCase',
+          localIdentName: `${isDev ? '[name]__[local]__[hash:base64:5]' : '[hash:base64]'}`,
+        },
+      },
+    },
+    'sass-loader',
+  ];
 
   if (isDev) {
     return styleLoaders;
@@ -26,16 +26,16 @@ const createCssFile = (isDev) => {
   // заменяем style-loader
   styleLoaders[0] = MiniCssExtractPlugin.loader;
   return styleLoaders;
-}
+};
 
-module.exports = ({ development } ) => {
+module.exports = ({ development }) => {
   return {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: ['@babel/polyfill', './index.js'],
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, 'dist')
+      path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
       extensions: ['.js', '.jsx'],
@@ -47,35 +47,27 @@ module.exports = ({ development } ) => {
     devtool: 'eval',
     devServer: {
       contentBase: path.resolve(__dirname, 'dist'),
-      port: 3001
+      port: 3001,
+      'stats.children': true,
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        inject: 'body'
+        inject: 'body',
       }),
       new CleanWebpackPlugin({
-        cleanOnceBeforeBuildPatterns: []
+        cleanOnceBeforeBuildPatterns: [],
       }),
       new SpriteLoaderPlugin(),
-      new ImageMinimizerPlugin({
-        minimizerOptions: {
-          plugins: [
-            ["jpegtran", {progressive: true}],
-          ],
-        },
-      }),
       new MiniCssExtractPlugin({
-        filename: 'style.css'
-      })
+        filename: 'style.css',
+      }),
     ],
     module: {
       rules: [
         {
           test: /\.s[ac]ss$/i,
-          use: [
-            ...createCssFile(development)
-          ]
+          use: [...createCssFile(development)],
         },
         {
           test: /\.(png|jpg|gif)$/,
@@ -92,9 +84,9 @@ module.exports = ({ development } ) => {
               options: {
                 extract: true,
                 publicPath: './assets/icons/',
-              }
-            }
-          ]
+              },
+            },
+          ],
         },
         {
           test: /\.(js|jsx)$/,
@@ -102,14 +94,11 @@ module.exports = ({ development } ) => {
             loader: 'babel-loader',
             options: {
               plugins: ['lodash'],
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react'
-              ]
-            }
-          }
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
+          },
         },
-      ]
-    }
-  }
-}
+      ],
+    },
+  };
+};
