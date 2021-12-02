@@ -1,8 +1,8 @@
-import _ from 'lodash';
+import uniqueId from 'lodash.uniqueid';
 
 class Task {
   constructor(text) {
-    this.id = _.uniqueId();
+    this.id = uniqueId();
     this.text = text;
     this.completed = false;
   }

@@ -1,7 +1,7 @@
 const filterHandlers = {
-  all: (task) => true,
+  all: () => true,
   active: (task) => !task.completed,
-  completed: (task) => task.completed
-}
+  completed: (task) => task.completed,
+};
 
 export default filterHandlers;

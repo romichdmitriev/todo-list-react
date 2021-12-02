@@ -1,22 +1,27 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-import TaskItem from "./TaskItemComponent/TaskItem";
-import TasksFilters from "./TasksFiltersComponent/TasksFilters";
+import { selectTodos } from '../../store/todos/selector';
+
+import TaskItem from './TaskItem/TaskItem';
+import TasksFilters from './TasksFiltersComponent/TasksFilters';
 
 import styles from './TasksList.scss';
 
-const TasksList = ({ tasks, setTasks, activeFilter, setActiveFilter }) => {
+const TasksList = () => {
+  const todos = useSelector(selectTodos);
+
   return (
     <div className={styles.tasks}>
       <ul className={styles.tasksList}>
-        {tasks.map((task) => (
-          <TaskItem key={ task.id } currentTask={ task } tasks={ tasks } setTasks={ setTasks }/>
+        {todos.map((task) => (
+          <TaskItem key={task.id} task={task} />
         ))}
       </ul>
 
-      <TasksFilters tasks={ tasks } setTasks={ setTasks } activeFilter={activeFilter} setActiveFilter={ setActiveFilter }/>
+      <TasksFilters todosCount={todos.length} />
     </div>
-  )
-}
+  );
+};
 
 export default TasksList;
