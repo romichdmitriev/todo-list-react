@@ -5,8 +5,8 @@ import classnames from 'classnames';
 import { themeSliceSelectors } from '@store/rootSelector';
 
 // hooks
-import useChangeTheme from '../../hooks/theme/useChangeTheme';
-import useSelectorStore from '../../hooks/useSelector';
+import useChangeTheme from '@hooks/theme/useChangeTheme';
+import useSelectorStore from '@hooks/useSelector';
 
 // styles
 import styles from './AppHeader.scss';
