@@ -13,7 +13,7 @@ const TasksFilters = ({ todosCount, isShowClearCompleted }) => {
 
   return (
     <div className={styles.filtersContainer} data-testid='tasks-filters'>
-      <p>{`${todosCount} ${CONST_TEXT.todoCountRemain}`}</p>
+      <p className={styles.tasksCounter}>{`${todosCount} ${CONST_TEXT.todoCountRemain}`}</p>
 
       <div className={styles.filters}>
         {filtersList.map((filter) => (

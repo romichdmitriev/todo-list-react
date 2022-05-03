@@ -30,6 +30,7 @@
 
 @media screen and (max-width: 576px) {
   .filters-container {
+    grid-template-columns: 1fr;
     justify-content: center;
   }
 
