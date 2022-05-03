@@ -1,3 +1,19 @@
-export { default as todos } from './todos/todosSlice';
-export { default as filters } from './filters/filtersSlice';
-export { default as theme } from './theme/themeSlice';
+import { todosInitialState, todosReducer } from './todos/reducer';
+import { themeInitialState, themeReducer } from './theme/reducer';
+import reducerFactory from '../utils/reducerFactory';
+
+const rootInitialState = {
+  ...todosInitialState,
+  ...themeInitialState,
+};
+const rootReducer = reducerFactory({
+  ...todosReducer,
+  ...themeReducer,
+});
+
+const Store = {
+  rootInitialState,
+  rootReducer,
+};
+
+export default Store;

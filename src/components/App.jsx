@@ -1,31 +1,48 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 
-import { selectTheme } from '../store/theme/selector';
+// hooks
+import useEffectOnce from '@hooks/useEffectOnce';
+import useChangeTheme from '@hooks/theme/useChangeTheme';
 
-import TasksList from './TasksListComponent/TasksList';
-import AppHeader from './AppHeader/AppHeader';
-import TaskInput from './TaskInput/TaskInput';
+// components
+import TasksList from '@components/TasksList/TasksList';
+import AppHeader from '@components/AppHeader/AppHeader';
+import TaskInput from '@components/TaskInput/TaskInput';
 
+// styles
 import styles from './App.scss';
-import THEME from './THEME';
-import classNames from 'classnames';
+
+// utils
+import getUserTheme from '@utils/getIsDarkTheme';
+
+// constants
+import UNIQUE_TEXT_KEYS from '../constants/unique-keys';
 
 const App = () => {
-  const isLightTheme = useSelector(selectTheme);
+  const changeTheme = useChangeTheme();
+
+  /* set current theme */
+  useEffectOnce(() => {
+    const currentTheme = getUserTheme();
+    changeTheme(currentTheme);
+  });
+
+  /* check media query prefers-color-scheme: dark */
+  useEffect(() => {
+    const handleOnChangePreferColors = ({ matches: isDark }) => {
+      changeTheme(isDark ? UNIQUE_TEXT_KEYS.dark : UNIQUE_TEXT_KEYS.light);
+    };
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleOnChangePreferColors);
+
+    return () => {
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleOnChangePreferColors);
+    };
+  });
 
   return (
-    <div
-      className={classNames({
-        [THEME.app.light]: isLightTheme,
-        [THEME.app.dark]: !isLightTheme,
-      })}>
-      <div
-        className={classNames({
-          [THEME.img.light]: isLightTheme,
-          [THEME.img.dark]: !isLightTheme,
-        })}
-      />
+    <div className={styles.app}>
+      <div className={styles.bannerImage} />
 
       <main className={styles.content}>
         <AppHeader />

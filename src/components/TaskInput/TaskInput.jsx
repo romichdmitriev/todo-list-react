@@ -1,54 +1,63 @@
 import React, { useState } from 'react';
-import { useDispatchActions } from '../../hooks/useDispatchActions';
-import { todosActions } from '../../store/rootActions';
+import classnames from 'classnames';
 
-import Task from '../../Objects/Task';
+// hooks
+import useTodoActions from '@hooks/todos/useTodoActions';
 
+// components
+import CheckIcon from '@assets/icons/completed.svg';
+
+// styles
 import styles from './TaskInput.scss';
 
+// service
+import createTask from '@service/TaskService';
+import CONST_TEXT from '@constants/text';
+
 const TaskInput = () => {
-  const { addTodo } = useDispatchActions(todosActions);
+  const { handleAddTodo } = useTodoActions();
 
   const [inputText, setInputText] = useState('');
 
   const onInputChange = ({ target }) => setInputText(target.value);
 
+  const addTodo = () => {
+    const newTask = createTask(inputText);
+
+    setInputText('');
+    handleAddTodo(newTask);
+  };
+
   const addTaskByClick = () => {
-    if (!inputText) {
+    if (!inputText || inputText.length < 4) {
       return;
     }
 
-    const newTask = new Task(inputText);
-
-    setInputText('');
-    addTodo(newTask);
+    addTodo();
   };
 
   const addTaskByKey = ({ key }) => {
-    if (!inputText.length || key !== 'Enter') {
+    if (!inputText.length || key !== 'Enter' || inputText.length < 4) {
       return;
     }
 
-    const newTask = new Task(inputText);
-
-    setInputText('');
-    addTodo(newTask);
+    addTodo();
   };
 
   return (
-    <div className={`${styles.addTaskPosition} ${styles.addTask}`} onKeyPress={addTaskByKey}>
-      <div className={styles.check} onClick={addTaskByClick}>
-        <svg className={styles.checkIcon}>
-          <use xlinkHref='./assets/icons/sprite.svg#completed' />
-        </svg>
-      </div>
+    <div role='task-input' className={classnames(styles.addTaskPosition, styles.addTask)} onKeyDown={addTaskByKey}>
+      {inputText && (
+        <div role='add-todo-button' data-testid='add-task-button' className={styles.check} onClick={addTaskByClick}>
+          <CheckIcon color='white' />
+        </div>
+      )}
 
       <input
         type='text'
         className={styles.input}
         onChange={onInputChange}
         value={inputText}
-        placeholder='Create a new todo...'
+        placeholder={CONST_TEXT.todoCreateInputPlaceholder}
         required
       />
     </div>

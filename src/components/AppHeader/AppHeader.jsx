@@ -1,21 +1,42 @@
-import React from 'react';
-import { useDispatchActions } from '../../hooks/useDispatchActions';
+import React, { memo } from 'react';
+import classnames from 'classnames';
 
-import { themeActions } from '../../store/rootActions';
+// store
+import { themeSliceSelectors } from '@store/rootSelector';
 
+// hooks
+import useChangeTheme from '../../hooks/theme/useChangeTheme';
+import useSelectorStore from '../../hooks/useSelector';
+
+// styles
 import styles from './AppHeader.scss';
 
+// utils
+import UNIQUE_TEXT_KEYS from '@constants/unique-keys';
+import CONST_TEXT from '@constants/text';
+
 const AppHeader = () => {
-  const { toggleTheme } = useDispatchActions(themeActions);
+  const theme = useSelectorStore(themeSliceSelectors);
+  const changeTheme = useChangeTheme();
+
+  const handleChangeTheme = (e) => {
+    changeTheme(e?.target?.checked ? UNIQUE_TEXT_KEYS.dark : UNIQUE_TEXT_KEYS.light);
+  };
 
   return (
-    <div className={`${styles.titlePos} ${styles.title}`}>
-      <h1>TODO</h1>
+    <header className={classnames(styles.headerPos, styles.header)}>
+      <h1>{CONST_TEXT.todo}</h1>
 
-      <input id='theme-checkbox' className={styles.themeCheckbox} type='checkbox' />
-      <label className={styles.themeToggler} htmlFor='theme-checkbox' onClick={toggleTheme} />
-    </div>
+      <input
+        checked={theme === UNIQUE_TEXT_KEYS.dark}
+        className={styles.themeCheckbox}
+        type='checkbox'
+        onChange={handleChangeTheme}
+        id='theme-checkbox'
+      />
+      <label className={styles.themeToggler} htmlFor='theme-checkbox' />
+    </header>
   );
 };
 
-export default AppHeader;
+export default memo(AppHeader);

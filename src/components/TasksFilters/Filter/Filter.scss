@@ -1,0 +1,25 @@
+// Стили позиционрования
+.position {
+  margin-right: 19px;
+}
+
+// Стили компонента
+.filter {
+  cursor: pointer;
+  text-transform: capitalize;
+
+  &:hover {
+    color: var(--filters-text-color-hover);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.filter--active,
+.filter--active:focus,
+.filter--active:hover {
+  color: #3a7cfd;
+  pointer-events: none;
+}

@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const createCssFile = (isDev) => {
@@ -38,16 +37,24 @@ module.exports = ({ development }) => {
       path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      extensions: ['', '.js', '.jsx'],
       alias: {
-        react: path.resolve(__dirname, 'node_modules', 'react'),
+        '@components': path.resolve(__dirname, './src/components/'),
+        '@store': path.resolve(__dirname, './src/store/'),
+        '@hooks': path.resolve(__dirname, './src/hooks/'),
+        '@styles': path.resolve(__dirname, './src/styles/'),
+        '@utils': path.resolve(__dirname, './src/utils/'),
+        '@constants': path.resolve(__dirname, './src/constants/'),
+        '@assets': path.resolve(__dirname, './src/assets/'),
+        '@test': path.resolve(__dirname, './src/__test__/'),
+        '@service': path.resolve(__dirname, './src/service/'),
       },
     },
     devtool: 'eval',
     devServer: {
       contentBase: path.resolve(__dirname, 'dist'),
       port: 3001,
+      hot: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -57,7 +64,6 @@ module.exports = ({ development }) => {
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [],
       }),
-      new SpriteLoaderPlugin(),
       new MiniCssExtractPlugin({
         filename: 'style.css',
       }),
@@ -77,15 +83,8 @@ module.exports = ({ development }) => {
         },
         {
           test: /\.svg$/,
-          use: [
-            {
-              loader: 'svg-sprite-loader',
-              options: {
-                extract: true,
-                publicPath: './assets/icons/',
-              },
-            },
-          ],
+          issuer: /\.[jt]sx?$/,
+          use: ['@svgr/webpack'],
         },
         {
           test: /\.(js|jsx)$/,

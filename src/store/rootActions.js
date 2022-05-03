@@ -1,3 +1,2 @@
-export { actions as todosActions } from './todos/todosSlice';
-export { actions as themeActions } from './theme/themeSlice';
-export { actions as filterActions } from './filters/filtersSlice';
+export { default as todosSliceActions } from './todos/actions';
+export { default as themeSliceActions } from './theme/actions';
