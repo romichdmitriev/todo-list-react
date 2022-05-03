@@ -12,7 +12,7 @@ Tech skills:
  
 ![todo-list](https://user-images.githubusercontent.com/64164474/121590801-2f9ed700-ca52-11eb-9304-03fd0760ef4b.gif)
 
-Deploy: [TODO list](https://todo-react-romichdmitriev.netlify.app/)
+Deploy: [TODO list](https://romichdmitriev-todo-list-react.netlify.app/)
 
 1. ### Install dependecies
 ```npm i```
