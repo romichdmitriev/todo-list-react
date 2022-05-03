@@ -1,6 +1,6 @@
-import { todosInitialState, todosReducer } from './todos/reducer';
-import { themeInitialState, themeReducer } from './theme/reducer';
-import reducerFactory from '../utils/reducerFactory';
+import { todosInitialState, todosReducer } from '@store/todos/reducer';
+import { themeInitialState, themeReducer } from '@store/theme/reducer';
+import reducerFactory from '@utils/reducerFactory';
 
 const rootInitialState = {
   ...todosInitialState,
