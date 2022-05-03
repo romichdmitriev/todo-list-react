@@ -6,6 +6,7 @@
 // Стили компонента
 .filter {
   cursor: pointer;
+  text-transform: capitalize;
 
   &:hover {
     color: var(--filters-text-color-hover);
@@ -16,7 +17,9 @@
   }
 }
 
-.filter--active {
+.filter--active,
+.filter--active:focus,
+.filter--active:hover {
   color: #3a7cfd;
   pointer-events: none;
 }
