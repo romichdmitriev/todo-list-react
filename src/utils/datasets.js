@@ -1,9 +1,9 @@
-import uniqueId from 'lodash.uniqueid';
+import { uid } from 'uid';
 
 const filtersList = [
-  { id: uniqueId(), name: 'all' },
-  { id: uniqueId(), name: 'active' },
-  { id: uniqueId(), name: 'completed' },
+  { id: uid(), name: 'all' },
+  { id: uid(), name: 'active' },
+  { id: uid(), name: 'completed' },
 ];
 
 export default filtersList;
