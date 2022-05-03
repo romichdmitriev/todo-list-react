@@ -1,5 +1,6 @@
 .filters-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   padding: 1.14em 1.7em 1.42em 1.7em;
   font-size: 0.875rem;
@@ -10,10 +11,17 @@
 .filters {
   display: flex;
   font-weight: 700;
+  margin: 0 auto;
 }
 
 .tasks-clear {
   cursor: pointer;
+  justify-self: end;
+
+  &--hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
 
   &:hover {
     color: var(--filters-text-color-hover);
@@ -21,7 +29,7 @@
 }
 
 @media screen and (max-width: 576px) {
-  .tasks-filters-container {
+  .filters-container {
     justify-content: center;
   }
 
