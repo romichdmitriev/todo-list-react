@@ -7,6 +7,15 @@
   "setupFilesAfterEnv": ["./setupTests.js"],
   "moduleNameMapper": {
     "^.+\\.(css|less|scss)$": "identity-obj-proxy",
-    "\\.svg": "<rootDir>/src/__test__/__mocks__/svg.js"
+    "\\.svg": "<rootDir>/src/__test__/__mocks__/svg.js",
+    "^@components/(.*)$": "<rootDir>/src/components/$1",
+    "^@hooks/(.*)$": "<rootDir>/src/hooks/$1",
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+    "^@styles/(.*)$": "<rootDir>/src/styles/$1",
+    "^@store/(.*)$": "<rootDir>/src/store/$1",
+    "^@constants/(.*)$": "<rootDir>/src/constants/$1",
+    "^@assets/(.*)$": "<rootDir>/src/assets/$1",
+    "^@service/(.*)$": "<rootDir>/src/service/$1",
+    "^@test/(.*)$": "<rootDir>/src/__test__/$1"
   }
 }
